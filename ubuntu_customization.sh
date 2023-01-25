@@ -50,11 +50,20 @@ sudo snap install code --classic
 # Install Aircrack-ng
 sudo apt install -y aircrack-ng
 
+# Install samba
+sudo apt install -y samba
+
+# Install smbclient
+sudo apt install -y smbclient
+
 # Install Sqlmap
 sudo snap install sqlmap
 
 # Install Docker
 sudo snap install docker
+
+# Install Impacket
+pip3 install impacket
 
 # Install Metasploit
 #sudo snap install curl
@@ -63,16 +72,13 @@ sudo snap install docker
 # ./msfinstall
 sudo snap install metasploit-framework
 
-
-
 # FIXME: # Install Burp Suite
 # sudo apt install -y  burp >> setup_log.txt
 
 
 # FIXME: add conky with IP addr
 # FIXME: install rubeus
-# FIXME: install samba
-# netcat, tcpdump, ettercap, bettercap, nikto, armitage (if avail)
+# ettercap, bettercap, nikto, armitage (if avail)
 # cewl, responder, bleachbit, recon-ng, mimikatz, set, veil, bloodhound, shellter
 # wordlists, spiderfoot, macchanger
 
@@ -94,7 +100,9 @@ gsettings set org.gnome.desktop.session idle-delay 0
 # FIXME: Change desktop background
 # FIXME: edit vimrc
 
-
+# FIXME: socat
+# FIXME: proxychains
+# FIXME: remove apps from favorites bar
 # FIXME: change the colors of the terminal to white
 # FIXME: change the buttons to be up down arrows and x
 # FIXME: add this firefox extension: https://addons.mozilla.org/en-US/firefox/addon/gnome-shell-integration/
