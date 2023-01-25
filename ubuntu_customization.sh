@@ -101,3 +101,4 @@ gsettings set org.gnome.desktop.session idle-delay 0
 # FIXME: remove gnome
 # FIXME: change the colors of the terminal to white
 # FIXME: change the buttons to be up down arrows and x
+# FIXME: add this firefox extension: https://addons.mozilla.org/en-US/firefox/addon/gnome-shell-integration/
