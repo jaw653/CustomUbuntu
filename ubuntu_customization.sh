@@ -12,12 +12,17 @@ sudo apt-get update
 # Install curl
 sudo snap install curl
 
-echo [*] Conducting apt-get installations...
+# Install net-tools (ifconfig)
+sudo apt install -y net-tools
+
 # Install Vim
 sudo apt-get install -y vim
 
-# Install tmux
-sudo apt-get install -y tmux
+# Install Terminator
+sudo apt install -y terminator
+
+# Install conky
+sudo apt install -y conky
 
 # Install Hydra
 sudo apt-get install -y hydra
@@ -39,10 +44,6 @@ sudo apt install -y cewl
 
 # Install John the Ripper
 sudo snap install john-the-ripper
-
-echo [+] Done.
-
-echo [*] Conducting snap and more complex installations...
 
 # Install Sublime Text
 sudo snap install sublime-text --classic
@@ -69,26 +70,24 @@ sudo snap install docker
 pip3 install impacket
 
 # Install Metasploit
-#sudo snap install curl
-#curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
-#chmod 755 msfinstall
-# ./msfinstall
 sudo snap install metasploit-framework
 
 # Install Sliver C2
 curl https://sliver.sh/install | sudo bash
 
+# Install BeEF
+sudo apt install -y beef-xss
+
 # FIXME: # Install Burp Suite
-# sudo apt install -y  burp >> setup_log.txt
+# sudo apt install -y  burp
 
 
-# FIXME: add conky with IP addr
-# FIXME: install rubeus
-# ettercap, bettercap, nikto, armitage (if avail)
+# FIXME: install rubeus, social engineering toolkit
+# BeEF, ettercap, bettercap, nikto, armitage (if avail)
 # responder, bleachbit, recon-ng, mimikatz, set, veil, bloodhound, shellter
 # wordlists, spiderfoot, macchanger
+# FIXME: socat, proxychains
 
-# FIXME: Install / configure MATE
 
 echo [+] Done.
 
@@ -100,17 +99,58 @@ echo [*] Configuring system...
 # Change the screen sleep timer to infinity
 gsettings set org.gnome.desktop.session idle-delay 0
 
-# FIXME: Remove annoying backspace beeps
-# echo bind 'set bell-style none' >> ~/.bashrc
+# Add a user-owned bin folder to path
+mkdir ~/bin
+export PATH="$HOME/bin:$PATH"
 
+# Remove annoying backspace beeps
+echo "xset b off" >> ~/.bashrc && source ~/.bashrc		# FIXME: still not working
+
+# Configure conkyrc
+echo "alignment top_right
+background no
+border_width 0
+
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders no
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont Droid Sans:size=20
+gap_x 100
+gap_y 60
+minimum_size 100 25
+
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_class Conky
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer no
+show_graph_scale no
+show_graph_range no
+
+TEXT
+${execi 3600 ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'}" > ~/.conkyrc
+
+# FIXME: script to make conky run and run on startup
+
+# FIXME: setup more secure browsing / internet anonymity
 # FIXME: Change desktop background
 # FIXME: edit vimrc
 
-# FIXME: socat
-# FIXME: proxychains
+
 # FIXME: remove apps from favorites bar
 # FIXME: change the colors of the terminal to white
-# FIXME: change the buttons to be up down arrows and x
-# FIXME: add this firefox extension: https://addons.mozilla.org/en-US/firefox/addon/gnome-shell-integration/
 
 echo [+] Done.
