@@ -9,6 +9,9 @@ echo [*] Installing packages...
 # Update the package list
 sudo apt-get update
 
+# Install curl
+sudo snap install curl
+
 echo [*] Conducting apt-get installations...
 # Install Vim
 sudo apt-get install -y vim
@@ -72,6 +75,9 @@ pip3 install impacket
 # ./msfinstall
 sudo snap install metasploit-framework
 
+# Install Sliver C2
+curl https://sliver.sh/install | sudo bash
+
 # FIXME: # Install Burp Suite
 # sudo apt install -y  burp >> setup_log.txt
 
@@ -79,7 +85,7 @@ sudo snap install metasploit-framework
 # FIXME: add conky with IP addr
 # FIXME: install rubeus
 # ettercap, bettercap, nikto, armitage (if avail)
-# cewl, responder, bleachbit, recon-ng, mimikatz, set, veil, bloodhound, shellter
+# responder, bleachbit, recon-ng, mimikatz, set, veil, bloodhound, shellter
 # wordlists, spiderfoot, macchanger
 
 # FIXME: Install / configure MATE
