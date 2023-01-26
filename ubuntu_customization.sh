@@ -141,7 +141,9 @@ show_graph_scale no
 show_graph_range no
 
 TEXT
-${execi 3600 ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'}" > ~/.conkyrc
+\${execi 3600 ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'}" > ~/.conkyrc
+
+conky &		# FIXME
 
 # FIXME: script to make conky run and run on startup
 
