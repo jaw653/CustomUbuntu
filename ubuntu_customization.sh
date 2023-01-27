@@ -76,7 +76,12 @@ sudo snap install metasploit-framework
 curl https://sliver.sh/install | sudo bash
 
 # Install BeEF
-sudo apt install -y beef-xss
+sudo apt install -y beef-xss		# FIXME
+
+# Install Social Engineering Toolkit
+git clone https://github.com/trustedsec/social-engineer-toolkit setoolkit/
+sudo pip3 install -r ~/setoolkit/requirements.txt
+sudo python3 ~/setoolkit/setup.py
 
 # FIXME: # Install Burp Suite
 # sudo apt install -y  burp
@@ -144,6 +149,7 @@ TEXT
 \${execi 3600 ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'}" > ~/.conkyrc
 
 conky &		# FIXME
+disown 1
 
 # FIXME: script to make conky run and run on startup
 
